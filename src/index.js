@@ -8,24 +8,39 @@ import { createStore } from "redux";
 const initial = {
     player1: 0,
     player2: 0,
+    server: true,
 };
 
+// let total = player1 + player2;
+// let changeServer = () => {
+//      if (total % 5 === 0) {
+//          { server: !state.server }
+//      }
+// }
+
+const p1 = (state) => ({ ...state, player1: state.player1 + 1 });
+const p2 = (state) => ({ ...state, player2: state.player2 + 1 });
+
+
+// handle server change
+const changeServer = (state) => ({ ...state, server: Math.floor((state.player1 + state.player2) / 5) % 2 === 0}); 
+
 const reducer = (state, action) => {
+    
 	switch(action.type) {
-        case "incrementPlayer1": return { ...state, player1: state.player1 + 1 };
-        case "incrementPlayer2": return { ...state, player2: state.player2 + 1 };
+        case "incrementPlayer1": return changeServer(p1(state));
+        case "incrementPlayer2": return changeServer(p2(state));
         case "reset": return initial;
 		default: return state;
 	}
 }
 
-// console.log(reducer({ player1: 1 }, { type: "incrementPlayer1" }));
 
 // REDUX STUFF
 const store = createStore(
     reducer,
     initial,
-    // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
   );
 
 const render = () => {
@@ -36,9 +51,12 @@ const render = () => {
         <App 
             player1={ state.player1 }
             player2={ state.player2 }
+            server={ state.server }
+            
             handleIncrementPlayer1={() => store.dispatch({ type: "incrementPlayer1" }) }
             handleIncrementPlayer2={() => store.dispatch({ type: "incrementPlayer2" }) } 
             handleReset={() => store.dispatch({ type: "reset" }) }
+            
         />,
         document.getElementById("root")
     ); 
