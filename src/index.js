@@ -10,7 +10,17 @@ import { Provider } from "react-redux";
 
 ReactDOM.render(
     <Provider store={ store }>
-        <App />
+        <App 
+          player1={ state.player1 }
+          player2={ state.player2 }
+          p1Serves={ state.p1Serves }
+          winner={ state.winner }
+          history={ state.history }
+          
+          handleIncrementPlayer1={() => store.dispatch({ type: "incrementPlayer1" }) }
+          handleIncrementPlayer2={() => store.dispatch({ type: "incrementPlayer2" }) } 
+          handleReset={() => store.dispatch({ type: "reset" }) }
+        />
     </Provider>,
     document.getElementById("root"),
   );
