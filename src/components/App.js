@@ -18,10 +18,11 @@ const App = ({ player1, player2, p1Serves, winner, handleIncrementPlayer1, handl
                         <p className="card-text display-1">{ player1 }</p>
                     </div>
                     <div className="card-footer">
-                        <button 
-                            className="form-control btn btn-success"
-                            onClick={ handleIncrementPlayer1 }
-                        >+</button>
+                        { winner ? null :
+                            <button 
+                                className="form-control btn btn-success"
+                                onClick={ handleIncrementPlayer1 }
+                        >+</button> }
                     </div>
                 </div>
             </div>
@@ -35,10 +36,11 @@ const App = ({ player1, player2, p1Serves, winner, handleIncrementPlayer1, handl
                         <p className="card-text display-1">{ player2 }</p>
                     </div>
                     <div className="card-footer">
-                        <button 
-                            className="form-control btn btn-success"
-                            onClick={ handleIncrementPlayer2 }
-                        >+</button>
+                        { winner ? null :
+                                <button 
+                                    className="form-control btn btn-success"
+                                    onClick={ handleIncrementPlayer2 }
+                            >+</button> }
                     </div>
                 </div>
             </div>
