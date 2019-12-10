@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
+
 import store from "./data/store";
 
 
@@ -16,6 +17,7 @@ const render = () => {
             player2={ state.player2 }
             p1Serves={ state.p1Serves }
             winner={ state.winner }
+            history={ state.history }
             
             handleIncrementPlayer1={() => store.dispatch({ type: "incrementPlayer1" }) }
             handleIncrementPlayer2={() => store.dispatch({ type: "incrementPlayer2" }) } 
