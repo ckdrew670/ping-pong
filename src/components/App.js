@@ -1,15 +1,19 @@
 import React from "react";
+import Player1 from "./Player/Player1";
+import Player2 from "./Player/Player2";
 
 
-const App = ({ player1, player2, p1Serves, winner, history, handleIncrementPlayer1, handleIncrementPlayer2, handleReset }) => (
+const App = ({ handleIncrementPlayer1, handleIncrementPlayer2, handleReset }) => (
     <React.Fragment>
+
         {/* header */}
         <header className="jumbotron mt-4 mb-0">
             <h1>PongPing</h1>
         </header>
         
-        <Player />
-        
+        <Player1 handlePlayer={ handleIncrementPlayer1 }/>
+        <Player2 handlePlayer={ handleIncrementPlayer2 }/>
+
         { !winner ? null :
             <h2 className="alert alert-success">Player { player1 === 21 ? "1" : "2" } wins!
             </h2>

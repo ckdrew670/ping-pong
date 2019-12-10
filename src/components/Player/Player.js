@@ -2,49 +2,30 @@ import React from "react";
 
 const Player = ({
     winner,
-    p1Serves,
-    player1,
-    player2,
+    server,
+    score,
 
-    handleIncrementPlayer1,
-    handleIncrementPlayer2,
+    handleIncrement,
 }) => (
-    <div className="row mb-4">
-        <div className="col-md-6 mt-4">
-            <div 
-                className={ p1Serves ? "card text-center bg-dark text-white" : "card  text-center" }
-            >
-            <h5 className="card-header">Player 1</h5>
+<div className="row mb-4">
+    <div className="col-md-6 mt-4">
+        <div 
+            className={ server ? "card text-center bg-dark text-white" : "card  text-center" }
+        >
+            <h5 className="card-header">Player</h5>
             <div className="card-body">
-                <p className="card-text display-1">{ player1 }</p>
+                <p className="card-text display-1">{ score }</p>
             </div>
             <div className="card-footer">
                 { winner ? null :
                     <button 
                         className="form-control btn btn-success"
-                        onClick={ handleIncrementPlayer1 }
+                        onClick={ handleIncrement }
                 >+</button> }
             </div>
         </div>
     </div>
-
-    <div className="col-md-6 mt-4">
-        <div 
-            className={ !p1Serves ? "card text-center bg-dark text-white" : "card  text-center" }
-        >
-            <h5 className="card-header">Player 2</h5>
-            <div className="card-body">
-                <p className="card-text display-1">{ player2 }</p>
-            </div>
-            <div className="card-footer">
-                { winner ? null :
-                        <button 
-                            className="form-control btn btn-success"
-                            onClick={ handleIncrementPlayer2 }
-                    >+</button> }
-                </div>
-            </div>
-        </div>
-    </div>
+</div>
+ 
 );
 export default Player;

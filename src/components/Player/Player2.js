@@ -1,8 +1,13 @@
-import React from "react";
+import { connect } from "react-redux";
+import Player from "./Player";
 
-const Player2 = ({
-  //value,
-}) => (
-  //<p className="well">{ value }</p>
-);
-export default Player2;
+const mapStateToProps = state => {
+    return {
+        score: state.player2,
+        server: state.p1Serves,
+        winner: state.winner,
+
+    };
+};
+
+export default connect(mapStateToProps)(Player);
