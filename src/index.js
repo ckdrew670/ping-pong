@@ -9,6 +9,7 @@ const initial = {
     player1: 0,
     player2: 0,
     server: true,
+    winner: false,
 };
 
 // let total = player1 + player2;
@@ -25,11 +26,14 @@ const p2 = (state) => ({ ...state, player2: state.player2 + 1 });
 // handle server change
 const changeServer = (state) => ({ ...state, server: Math.floor((state.player1 + state.player2) / 5) % 2 === 0}); 
 
+// handle winning message
+const winner = (state) => ({ ...state, winner: state.player1 === 21 && state.player2 <= 19 || state.player2 === 21 && state.player1 <= 19 });
+
 const reducer = (state, action) => {
     
 	switch(action.type) {
-        case "incrementPlayer1": return changeServer(p1(state));
-        case "incrementPlayer2": return changeServer(p2(state));
+        case "incrementPlayer1": return winner(changeServer(p1(state)));
+        case "incrementPlayer2": return winner(changeServer(p2(state)));
         case "reset": return initial;
 		default: return state;
 	}
@@ -52,6 +56,7 @@ const render = () => {
             player1={ state.player1 }
             player2={ state.player2 }
             server={ state.server }
+            winner={ state.winner }
             
             handleIncrementPlayer1={() => store.dispatch({ type: "incrementPlayer1" }) }
             handleIncrementPlayer2={() => store.dispatch({ type: "incrementPlayer2" }) } 
