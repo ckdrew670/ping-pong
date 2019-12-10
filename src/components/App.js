@@ -1,4 +1,5 @@
 import React from "react";
+import { Provider } from "react-redux";
 
 const App = ({ player1, player2, p1Serves, winner, history, handleIncrementPlayer1, handleIncrementPlayer2, handleReset }) => (
     <React.Fragment>
