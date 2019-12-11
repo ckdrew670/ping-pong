@@ -1,12 +1,20 @@
 import { connect } from "react-redux";
+import { reset } from "../../data/actions";
 
 import Reset from "./Reset";
 
 const mapStateToProps = state => {
     return {
         winner: state.winner,
-        initial: state.initial, // <-- what does the reset button need to know in order to reset?
+        initial: state.initial,
     };
 };
 
-export default connect(mapStateToProps)(Reset);
+const mapDispatchToProps = dispatch => {
+    return {
+      handleReset: () => dispatch(reset()),
+
+    }; 
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Reset);
+
