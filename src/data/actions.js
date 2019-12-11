@@ -8,7 +8,7 @@ export const reset = () => {
     }; 
 };
 
-// add to p1 cores
+// add to p1 scores
 export const incrementPlayer1 = () => {
     return {
         type: "incrementPlayer1",
@@ -21,3 +21,20 @@ export const incrementPlayer2 = () => {
         type: "incrementPlayer2",
     };
 };
+
+export const submit = ({
+    name1,
+    name2,
+    winningScore,
+    serviceLength,
+}) => {
+    return {
+      type: "submit",
+      // we can use the action creator to tidy up the data
+      name1: name1,
+      name2: name2,
+      winningScore: winningScore,
+      serviceLength: serviceLength,
+    }; 
+};
+  

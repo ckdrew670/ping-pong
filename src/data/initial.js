@@ -4,6 +4,10 @@ const initial = {
     p1serves: true,
     winner: false,
     history: [],
+    name1: "",
+    name2: "",
+    winningScore: 21,
+    serviceLength: 5,
 };
 
 export default initial;

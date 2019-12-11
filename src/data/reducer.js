@@ -1,5 +1,6 @@
 
 import initial from "./initial";
+import { enterPlayer1Name } from "./actions";
 
 
 // handle scoring
@@ -41,6 +42,13 @@ const history = (state) => ({
         }
     ]  
 })
+const submitSettings = (state, { name1, name2, winningScore, serviceChange }) => ({
+    ...state,
+    name1, 
+    name2, 
+    winningScore, 
+    serviceChange,
+})
 
 const reducer = (state, action) => {
     
@@ -48,6 +56,7 @@ const reducer = (state, action) => {
         case "incrementPlayer1": return history(changeServer(winner(p1(state))));
         case "incrementPlayer2": return history(changeServer(winner(p2(state))));
         case "reset": return {...initial, history: state.history};
+        case "submit": return submitSettings(state, action);
         default: return state;
 	}
 }

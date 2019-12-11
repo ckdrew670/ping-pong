@@ -5,32 +5,25 @@ import Player2 from "./Player/Player2";
 import Reset from "./Reset";
 import Alert from "./Alert";
 import History from "./History";
+import Settings from "./Settings";
 
 
 
-const App = ({ 
-
-    handleIncrementPlayer1,
-    handleIncrementPlayer2, 
-    handleReset 
-}) => (
+const App = () => (
 
     <React.Fragment>
 
-        {/* header */}
+       
         <header className="jumbotron mt-4 mb-0">
             <h1>PongPing</h1>
         </header>
+        <Settings/>
 
-        <Player1 handleIncrement={ handleIncrementPlayer1 }/>
-        
-        <Player2 handleIncrement={ handleIncrementPlayer2 }/>
-        
+        <Player1 />
+        <Player2 />
         <Alert/>
         <hr />
-
-        <Reset handleReset={ handleReset } />
-        
+        <Reset />
         <History />
 
         
