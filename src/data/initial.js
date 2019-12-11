@@ -8,6 +8,7 @@ const initial = {
     name2: "",
     winningScore: 21,
     serviceLength: 5,
+    displaySettings: true, 
 };
 
 export default initial;
