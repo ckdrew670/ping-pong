@@ -1,6 +1,5 @@
 
 import initial from "./initial";
-import { enterPlayer1Name } from "./actions";
 
 
 // handle scoring
@@ -11,13 +10,13 @@ const p2 = (state) => ({ ...state, player2: state.player2 + 1 });
 const changeServer = (state) => ({ 
     ...state, 
     p1Serves: state.player1 + state.player2 <= 40 ? 
-    Math.floor((state.player1 + state.player2) / 5) % 2 === 0 : 
+    Math.floor((state.player1 + state.player2) / state.serviceLength) % 2 === 0 : 
     Math.floor((state.player1 + state.player2) / 2) % 2 === 0 
 }); 
 
 // handle who wins
-const p1wins = (state) => state.player1 >= 21 && state.player2 <= state.player1 - 2;
-const p2wins = (state) => state.player2 >= 21 && state.player1 <= state.player2 - 2;
+const p1wins = (state) => state.player1 >= state.winningScore && state.player2 <= state.player1 - 2;
+const p2wins = (state) => state.player2 >= state.winningScore && state.player1 <= state.player2 - 2;
 
 // handle winning message
 const winner = (state) => ({ ...state, winner: p1wins(state) || p2wins(state) });
@@ -42,12 +41,12 @@ const history = (state) => ({
         }
     ]  
 })
-const submitSettings = (state, { name1, name2, winningScore, serviceChange }) => ({
+const submitSettings = (state, { name1, name2, winningScore, serviceLength }) => ({
     ...state,
     name1, 
     name2, 
     winningScore, 
-    serviceChange,
+    serviceLength,
 })
 
 const reducer = (state, action) => {

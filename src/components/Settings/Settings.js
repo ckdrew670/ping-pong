@@ -77,6 +77,7 @@ let { name1, name2, winningScore, serviceLength } = this.state;
                 <Form.Control
                     onChange={ this.handleServiceLength }
                     value={ serviceLength }
+                    type="number"
                 /> 
             </Form.Group>
 

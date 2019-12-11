@@ -8,6 +8,7 @@ const mapStateToProps = state => {
         server: state.p1Serves,
         winner: state.winner,
         player: 1,
+        name: state.name1,
 
     };
 };

@@ -8,7 +8,7 @@ const mapStateToProps = state => {
         server: !state.p1Serves, // <-- but now how do you change server?
         winner: state.winner,
         player: 2,
-
+        name: state.name2,
     };
 };
 
