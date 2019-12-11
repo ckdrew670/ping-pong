@@ -1,7 +1,7 @@
 const initial = {
     player1: 0,
     player2: 0,
-    p1Serves: true,
+    p1serves: true,
     winner: false,
     history: [],
 };

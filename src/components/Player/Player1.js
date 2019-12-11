@@ -1,11 +1,13 @@
 import { connect } from "react-redux";
+
 import Player from "./Player";
 
 const mapStateToProps = state => {
     return {
         score: state.player1,
-        server: state.p1serves,
+        server: state.p1Serves,
         winner: state.winner,
+        player: 1,
 
     };
 };

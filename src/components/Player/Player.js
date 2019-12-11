@@ -4,6 +4,7 @@ const Player = ({
     score,
     server,
     winner,
+    player,
     handleIncrement,
 }) => (
     <div className="row mb-4">
@@ -11,7 +12,7 @@ const Player = ({
             <div 
                 className={ server ? "card text-center bg-dark text-white" : "card  text-center" }
             >
-                <h5 className="card-header">Player</h5>
+                <h5 className="card-header">Player { player }</h5>
                 <div className="card-body">
                     <p className="card-text display-1">{ score }</p>
                 </div>
