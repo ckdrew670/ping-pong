@@ -18,8 +18,9 @@ const changeServer = (state) => ({
 const p1wins = (state) => state.player1 >= state.winningScore && state.player2 <= state.player1 - 2;
 const p2wins = (state) => state.player2 >= state.winningScore && state.player1 <= state.player2 - 2;
 
+
 // handle winning message
-const winner = (state) => ({ ...state, winner: p1wins(state) || p2wins(state) });
+const winner = (state) => ({ ...state, winner: p1wins(state) && 1 || p2wins(state) && 2 });
 
 // handle history
 // first make sure there is a winner
@@ -47,6 +48,8 @@ const submitSettings = (state, { name1, name2, winningScore, serviceLength }) =>
     name2, 
     winningScore, 
     serviceLength,
+    displaySettings: false,
+    
 })
 
 const reducer = (state, action) => {

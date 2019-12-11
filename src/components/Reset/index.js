@@ -7,6 +7,7 @@ const mapStateToProps = state => {
     return {
         winner: state.winner,
         initial: state.initial,
+        displaySettings: true,
     };
 };
 

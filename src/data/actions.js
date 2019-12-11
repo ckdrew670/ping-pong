@@ -27,6 +27,7 @@ export const submit = ({
     name2,
     winningScore,
     serviceLength,
+    displaySettings,
 }) => {
     return {
       type: "submit",
@@ -35,6 +36,7 @@ export const submit = ({
       name2: name2,
       winningScore: winningScore,
       serviceLength: serviceLength,
+      displaySettings: displaySettings,
     }; 
 };
   

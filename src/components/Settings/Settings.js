@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Form, Button } from "react-bootstrap";
 
+
 class Settings extends Component {
     constructor(props) {
         super(props);
@@ -10,6 +11,7 @@ class Settings extends Component {
             name2: props.name2,
             winningScore: props.winningScore,
             serviceLength: props.serviceLength,
+            
         };
     
         this.handleName1 = this.handleName1.bind(this);
@@ -42,9 +44,11 @@ handleServiceLength(e) {
 handleSubmit(e) {
     
     let { name1, name2, winningScore, serviceLength } = this.state;
+    
 
     e.preventDefault();
     this.props.handleSave(name1, name2, winningScore, serviceLength);
+    this.setState({ displaySettings: false });
 
 }
 
@@ -52,8 +56,12 @@ render() {
 
 let { name1, name2, winningScore, serviceLength } = this.state;
 
+
     return (
-        <Form onSubmit={ this.handleSubmit }>
+
+        <Form 
+            onSubmit={ this.handleSubmit }
+            >
             <Form.Group>
                 <Form.Label>Player 1 Name</Form.Label>
                 <Form.Control

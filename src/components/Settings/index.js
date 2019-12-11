@@ -8,6 +8,7 @@ const mapStateToProps = state => {
         name2: state.name2,
         winningScore: state.winningScore,
         serviceLength: state.serviceLength,
+        displaySettings: state.displaySettings,
     };
 };
 
