@@ -7,3 +7,17 @@ export const reset = () => {
         type: "reset",
     }; 
 };
+
+// add to p1 cores
+export const incrementPlayer1 = () => {
+    return {
+        type: "incrementPlayer1",
+    };
+};
+
+// add to p2 scores
+export const incrementPlayer2 = () => {
+    return {
+        type: "incrementPlayer2",
+    };
+};
