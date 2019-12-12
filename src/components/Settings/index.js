@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import Settings from "./Settings";
-import { submit } from "../../data/actions/state";
+import { postGame } from "../../data/actions/api";
 
 const mapStateToProps = state => {
     return {
@@ -14,9 +14,12 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
 
-    return {
-        handleSave: (name1, name2, winningScore, serviceLength) => dispatch(submit({ name1, name2, winningScore, serviceLength })),
-    }; 
+    return  {
+        handleSave: (name1, name2, winningScore, serviceLength) => 
+            dispatch(postGame({ name1, name2, winningScore, serviceLength })),
+        
+    }
+    
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Settings);

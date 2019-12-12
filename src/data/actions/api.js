@@ -1,29 +1,35 @@
 import axios from "../../axios";
 import { loaded } from "./state";
+import { submit } from "./state";
 
 
-// export const pushGame = value => dispatch => {
+export const postGame = ({
+    name1,
+    name2,
+    winningScore,
+    serviceLength,
+}) => dispatch => {
     
-//     axios.push("/", {
-
-//         id: value,
-//         name1: value,
-//         name2: value,
-//         winningScore: value, 
-//         serviceLength: value,
-
-
-//     }).then(({ data }) => {
+    axios.post("/", {
+        // pass along the data to the API
+        // can pass in a regular object literal
+        // axios will convert into JSON
+        player_1: name1,
+        player_2: name2,
+        winning_score: winningScore,
+        service_length: serviceLength,
     
-//         dispatch(id(data.data));
-
-//     }); 
-// };
+    }).then(({ data }) => {
+        // get the form results off the data
+        // pass it along to the existing form action
+        dispatch(submit(data.data));
+        
+    }); 
+};
 
 export const getGames = () => dispatch => {
     // now use axios to make an API request
     axios.get("/").then(({ data }) => {
-        console.log(data.data);
         dispatch(loaded(data.data));
 
     }); 
