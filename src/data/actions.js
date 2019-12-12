@@ -30,13 +30,13 @@ export const submit = ({
     displaySettings,
 }) => {
     return {
-      type: "submit",
-      // we can use the action creator to tidy up the data
-      name1: name1,
-      name2: name2,
-      winningScore: winningScore,
-      serviceLength: serviceLength,
-      displaySettings: displaySettings,
+        type: "submit",
+        // we can use the action creator to tidy up the data
+        name1: name1,
+        name2: name2,
+        winningScore: winningScore,
+        serviceLength: serviceLength,
+        displaySettings: displaySettings,
     }; 
 };
   

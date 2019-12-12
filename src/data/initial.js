@@ -9,6 +9,7 @@ const initial = {
     winningScore: 21,
     serviceLength: 5,
     displaySettings: true, 
+    loaded: false,
 };
 
 export default initial;
