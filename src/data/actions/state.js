@@ -39,4 +39,13 @@ export const submit = ({
         displaySettings: displaySettings,
     }; 
 };
+
+export const loaded = (data) => {
+    
+    return {
+        type: "loaded",
+        
+    }; 
+};
   
+

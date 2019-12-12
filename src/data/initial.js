@@ -10,6 +10,7 @@ const initial = {
     serviceLength: 5,
     displaySettings: true, 
     loaded: false,
+    id: 0,
 };
 
 export default initial;

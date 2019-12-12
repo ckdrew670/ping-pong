@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { incrementPlayer1 } from "../../data/actions";
+import { incrementPlayer1 } from "../../data/actions/state";
 import Player from "./Player";
 
 const mapStateToProps = state => {

@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import Settings from "./Settings";
-import { submit } from "../../data/actions";
+import { submit } from "../../data/actions/state";
 
 const mapStateToProps = state => {
     return {

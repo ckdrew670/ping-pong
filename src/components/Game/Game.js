@@ -6,26 +6,27 @@ import Reset from "../Reset";
 import Alert from "../Alert";
 import History from "../History";
 import Settings from "../Settings";
+import Loading from "../Loading";
 
 const Game = ({ 
     displaySettings,
 }) => (
 
-    !displaySettings ? 
+    <Loading>
 
-    <React.Fragment>
-        
+    { !displaySettings ? 
+
+    <>
         <Player1 />
         <Player2 />
         <Alert/>
         <hr />
         <Reset />
-        <History />
-        
-    </React.Fragment> :
-
-    <Settings/>
-    
+        {/* <History /> */}
+    </>
+    :
+        <Settings/> }
+    </Loading>
 );
 
 export default Game;

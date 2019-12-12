@@ -23,8 +23,6 @@ const p2wins = (state) => state.player2 >= state.winningScore && state.player1 <
 const winner = (state) => ({ ...state, winner: p1wins(state) && 1 || p2wins(state) && 2 });
 
 // handle history
-// first make sure there is a winner
-// then the table should show the following: each player's score and whether they won or not
 const history = (state) => ({ 
     ...state, 
     history: !state.winner ? state.history : [...state.history, 
@@ -42,6 +40,7 @@ const history = (state) => ({
         }
     ]  
 })
+
 const submitSettings = (state, { name1, name2, winningScore, serviceLength }) => ({
     ...state,
     name1, 
@@ -52,6 +51,13 @@ const submitSettings = (state, { name1, name2, winningScore, serviceLength }) =>
     
 })
 
+const loaded = (state) => ({
+    ...state,
+    // set loaded to true
+    loaded: true,
+   
+});
+
 const reducer = (state, action) => {
     
 	switch(action.type) {
@@ -59,6 +65,7 @@ const reducer = (state, action) => {
         case "incrementPlayer2": return history(changeServer(winner(p2(state))));
         case "reset": return {...initial, history: state.history};
         case "submit": return submitSettings(state, action);
+        case "loaded": return loaded(state, action);
         default: return state;
 	}
 }
